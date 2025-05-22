@@ -1186,14 +1186,14 @@ class GlifDataModel(models.Model):
 
     name = models.CharField(
         blank=True,
-        max_length=50,
+        max_length=100,
         db_index=True,
         verbose_name=_("Name"),
         help_text=_("(autodetected from xml data)"),
     )
 
     filename = models.CharField(
-        max_length=50,
+        max_length=100,
         blank=True,
         verbose_name=_("Filename"),
         help_text=_("(.glif xml output filename, autodetected from xml data)"),
