@@ -189,10 +189,13 @@ DATABASES = {
         "NAME": env("DATABASE_NAME"),
         "USER": env("DATABASE_USER"),
         "PASSWORD": env("DATABASE_PASSWORD"),
-        "HOST": "",
-        "PORT": "",
+        "HOST": env("DATABASE_HOST", default=""),
+        "PORT": env("DATABASE_PORT", default=""),
         "OPTIONS": {
+            # mysql
             "charset": "utf8mb4",
+            # postgresql
+            # 'client_encoding': 'UTF8',
             "connect_timeout": 30,
         },
         "CONN_MAX_AGE": 60,
