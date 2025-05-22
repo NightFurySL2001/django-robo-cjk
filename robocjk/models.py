@@ -464,11 +464,11 @@ class Font(UIDModel, HashidModel, NameSlugModel, TimestampModel, ExportModel):
         glifs_progress_perc = 0
 
         glifs_querysets = [
-            character_glyphs_qs,
-            character_glyphs_layers_qs,
-            deep_components_qs,
-            atomic_elements_qs,
-            atomic_elements_layers_qs,
+            character_glyphs_qs.order_by('id'),
+            character_glyphs_layers_qs.order_by('id'),
+            deep_components_qs.order_by('id'),
+            atomic_elements_qs.order_by('id'),
+            atomic_elements_layers_qs.order_by('id'),
         ]
 
         glifs_paginators = [
