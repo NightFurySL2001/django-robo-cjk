@@ -464,11 +464,11 @@ class Font(UIDModel, HashidModel, NameSlugModel, TimestampModel, ExportModel):
         glifs_progress_perc = 0
 
         glifs_querysets = [
-            character_glyphs_qs,
-            character_glyphs_layers_qs,
-            deep_components_qs,
-            atomic_elements_qs,
-            atomic_elements_layers_qs,
+            character_glyphs_qs.order_by('id'),
+            character_glyphs_layers_qs.order_by('id'),
+            deep_components_qs.order_by('id'),
+            atomic_elements_qs.order_by('id'),
+            atomic_elements_layers_qs.order_by('id'),
         ]
 
         glifs_paginators = [
@@ -1186,14 +1186,14 @@ class GlifDataModel(models.Model):
 
     name = models.CharField(
         blank=True,
-        max_length=50,
+        max_length=100,
         db_index=True,
         verbose_name=_("Name"),
         help_text=_("(autodetected from xml data)"),
     )
 
     filename = models.CharField(
-        max_length=50,
+        max_length=100,
         blank=True,
         verbose_name=_("Filename"),
         help_text=_("(.glif xml output filename, autodetected from xml data)"),
